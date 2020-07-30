@@ -73,3 +73,15 @@ class LinkedList:
             current = current.get_next()
         # if we've gotten here, then the target node isn't in our list
         return False
+
+    def get_max(self):
+        # if list is empty
+        if not self.head:
+            return None
+        current = self.head
+        max_val = self.head.value
+        while current:
+            if current.value > max_val:
+                max_val = current.value
+                current = current.next_node
+                return max_val
