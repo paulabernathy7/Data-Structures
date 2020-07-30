@@ -10,6 +10,11 @@ class ListNode:
         self.value = value
         self.next = next
 
+    """
+    Optional `delete` method on `ListNode` to make subsequent
+    methods more DRY.
+    """
+
     def delete(self):
         if self.prev:
             self.prev.next = self.next
@@ -40,10 +45,10 @@ class DoublyLinkedList:
 
     def add_to_head(self, value):
         new_node = ListNode(value, None, None)
-        self.length = + 1
-        if not self.head and not self.tail
-        self.head = new_node
-        self.tail = new_node
+        self.length += 1
+        if not self.head and not self.tail:
+            self.head = new_node
+            self.tail = new_node
         else:
             new_node.next = self.head
             self.head.prev = new_node
@@ -84,7 +89,9 @@ class DoublyLinkedList:
     """
 
     def remove_from_tail(self):
-        pass
+        value = self.tail.value
+        self.delete(self.tail)
+        return value
 
     """
     Removes the input node from its current spot in the 
@@ -99,7 +106,7 @@ class DoublyLinkedList:
             self.remove_from_tail()
         else:
             node.delete()
-            self.length() -= 1
+            self.length -= 1
         self.add_to_head(value)
 
     """
@@ -110,18 +117,8 @@ class DoublyLinkedList:
     def move_to_end(self, node):
         pass
 
-    """
-    Deletes the input node from the List, preserving the 
-    order of the other elements of the List.
-    """
-
     def delete(self, node):
         pass
-
-    """
-    Finds and returns the maximum value of all the nodes 
-    in the List.
-    """
 
     def get_max(self):
         pass
